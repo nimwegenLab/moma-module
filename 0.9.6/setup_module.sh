@@ -7,13 +7,10 @@ setup_docker_container() {
   id=$(docker create "${CONTAINER_TAG}")
 
   ### Copy support scripts from container to host
-#  HOST_SCRIPT_DIR="/host_scripts"
-#  if [[ ! -f "${MOMA_BIN_DIRECTORY}/mm_dispatch_preprocessing.sh" ]]; then
-#    docker cp "${id}":"${HOST_SCRIPT_DIR}/mm_dispatch_preprocessing.sh" "${MOMA_BIN_DIRECTORY}/mm_dispatch_preprocessing.sh"
-#  fi
-#  if [[ ! -f "${MOMA_BIN_DIRECTORY}/moma_preprocess.sh" ]]; then
-#    docker cp "${id}":"${HOST_SCRIPT_DIR}/moma_preprocess" "${MOMA_BIN_DIRECTORY}/moma_preprocess.sh"
-#  fi
+  HOST_SCRIPT_DIR="/host_scripts"
+  if [[ ! -f "${MOMA_BIN_DIRECTORY}/moma" ]]; then
+    docker cp "${id}":"${HOST_SCRIPT_DIR}/moma" "${MOMA_BIN_DIRECTORY}/moma"
+  fi
 }
 
 function setup_singularity_container() {
@@ -28,13 +25,10 @@ function setup_singularity_container() {
       singularity pull "${SINGULARITY_CONTAINER_FILE_PATH}" "docker://${CONTAINER_TAG}"
     fi
 
-#    HOST_SCRIPT_DIR="/host_scripts"
-#    if [[ ! -f "${MOMA_BIN_DIRECTORY}/mm_dispatch_preprocessing.sh" ]]; then
-#      singularity  exec --bind "${SINGULARITY_CONTAINER_DIR}":"${SINGULARITY_CONTAINER_DIR}" "${SINGULARITY_CONTAINER_FILE_PATH}" cp "${HOST_SCRIPT_DIR}/mm_dispatch_preprocessing.sh" "${SINGULARITY_CONTAINER_DIR}/mm_dispatch_preprocessing.sh"
-#    fi
-#    if [[ ! -f "${MOMA_BIN_DIRECTORY}/moma_preprocess.sh" ]]; then
-#      singularity  exec --bind "${SINGULARITY_CONTAINER_DIR}":"${SINGULARITY_CONTAINER_DIR}" "${SINGULARITY_CONTAINER_FILE_PATH}" cp "${HOST_SCRIPT_DIR}/moma_preprocess" "${SINGULARITY_CONTAINER_DIR}/moma_preprocess.sh"
-#    fi
+    HOST_SCRIPT_DIR="/host_scripts"
+    if [[ ! -f "${MOMA_BIN_DIRECTORY}/moma" ]]; then
+      singularity  exec --bind "${SINGULARITY_CONTAINER_DIR}":"${SINGULARITY_CONTAINER_DIR}" "${SINGULARITY_CONTAINER_FILE_PATH}" cp "${HOST_SCRIPT_DIR}/moma" "${SINGULARITY_CONTAINER_DIR}/moma"
+    fi
 }
 
 setup_module() {
