@@ -1,7 +1,7 @@
 setup_docker_container() {
-  ### TODO: Check if an image with this tag already exists; if it does do not pull new one; this will avoid having to run the lengthy hash calculation
+  # TODO: Check if Docker image tag already exists; if it does do not pull new one; this will avoid having to run the lengthy hash calculation
 
-  printf "Setting up module with Singularity container.\n"
+  printf "Setting up module with Docker container.\n"
 
   docker pull "${CONTAINER_TAG}"
   id=$(docker create "${CONTAINER_TAG}")
