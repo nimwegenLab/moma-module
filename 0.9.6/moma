@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 : '
-This script sets up the preprocessing container and its supporting scripts.
+This script sets up the MoMA container and its supporting scripts.
 It will use Singularity containers, when Singularity is present. It will try to use Docker otherwise.
+It then calls the implementation of moma, which is copied from the container.
 '
 
 set -u
