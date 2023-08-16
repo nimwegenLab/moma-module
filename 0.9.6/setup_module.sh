@@ -39,7 +39,7 @@ function setup_singularity_container() {
 }
 
 setup_module() {
-  export VERSION="v0.9.6"
+  export VERSION="v0.9.7"
   export CONTAINER_NAME="michaelmell/moma"
   export CONTAINER_TAG="${CONTAINER_NAME}:${VERSION}"
 
