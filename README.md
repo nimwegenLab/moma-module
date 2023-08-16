@@ -5,6 +5,7 @@ It allows you to run MoMA with minimal setup effort. Furthermore, contains modul
 
 ## Requirements
 
+- Your system should at least have 32GB of RAM.
 - You will need a Linux host system to run the Linux containers.
 - You must install [Docker](https://www.docker.com/) or [Singularity/Apptainer](https://apptainer.org/) to run the containers.
 
