@@ -40,13 +40,13 @@ function setup_singularity_container() {
 
 setup_module() {
   export VERSION="v0.9.7"
-  export CONTAINER_NAME="michaelmell/moma"
-  export CONTAINER_TAG="${CONTAINER_NAME}:${VERSION}"
+  export CONTAINER_NAME="moma"
+  CONTAINER_NAMESPACE="michaelmell"
+  export CONTAINER_TAG="${CONTAINER_NAMESPACE}/${CONTAINER_NAME}:${VERSION}"
 
   DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
   MOMA_BIN_DIRECTORY="${DIR}/bin/"
   export SINGULARITY_CONTAINER_DIR="${MOMA_BIN_DIRECTORY}"
-  SINGULARITY_CONTAINER_NAME="${CONTAINER_NAME//\//_}"
   SINGULARITY_CONTAINER_FILENAME="${CONTAINER_NAME//\//_}_${VERSION}.sif"
   export SINGULARITY_CONTAINER_FILE_PATH="${SINGULARITY_CONTAINER_DIR}/${SINGULARITY_CONTAINER_FILENAME}"
 
