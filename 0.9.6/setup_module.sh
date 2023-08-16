@@ -14,6 +14,9 @@ setup_docker_container() {
   if [[ ! -f "${MOMA_BIN_DIRECTORY}/moma_batch_run" ]]; then
     docker cp "${id}":"${HOST_SCRIPT_DIR}/moma_batch_run" "${MOMA_BIN_DIRECTORY}/moma_batch_run"
   fi
+  if [[ ! -f "${HOME}/.moma/mm.properties" ]]; then
+    docker cp "${id}":"${HOST_SCRIPT_DIR}/mm.properties" "${MOMA_BIN_DIRECTORY}/mm.properties"
+  fi
 }
 
 function setup_singularity_container() {
@@ -29,6 +32,9 @@ function setup_singularity_container() {
     fi
     if [[ ! -f "${MOMA_BIN_DIRECTORY}/moma_batch_run" ]]; then
       singularity  exec --bind "${SINGULARITY_CONTAINER_DIR}":"${SINGULARITY_CONTAINER_DIR}" "${SINGULARITY_CONTAINER_FILE_PATH}" cp "${HOST_SCRIPT_DIR}/moma_batch_run" "${SINGULARITY_CONTAINER_DIR}/moma_batch_run"
+    fi
+    if [[ ! -f "${HOME}/.moma/mm.properties" ]]; then
+      singularity  exec --bind "${SINGULARITY_CONTAINER_DIR}":"${SINGULARITY_CONTAINER_DIR}" "${SINGULARITY_CONTAINER_FILE_PATH}" cp "${HOST_SCRIPT_DIR}/mm.properties" "${SINGULARITY_CONTAINER_DIR}/mm.properties"
     fi
 }
 
