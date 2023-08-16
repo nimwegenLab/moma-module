@@ -1,9 +1,9 @@
 setup_docker_container() {
-  # TODO: Check if Docker image tag already exists; if it does do not pull new one; this will avoid having to run the lengthy hash calculation
-
   printf "Setting up module with Docker container.\n"
 
-  docker pull "${CONTAINER_TAG}"
+  if [[ "$(docker images -q "${CONTAINER_TAG}" 2> /dev/null)" == "" ]]; then
+    docker pull "${CONTAINER_TAG}"
+  fi
   id=$(docker create "${CONTAINER_TAG}")
 
   ### Copy support scripts from container to host
