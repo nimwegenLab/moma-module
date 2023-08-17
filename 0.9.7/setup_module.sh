@@ -1,7 +1,6 @@
 setup_docker_container() {
-  printf "Setting up module with Docker container.\n"
-
   if [[ "$(docker images -q "${CONTAINER_TAG}" 2> /dev/null)" == "" ]]; then
+    printf "Setting up module with Docker container.\n"
     docker pull "${CONTAINER_TAG}"
   fi
   id=$(docker create "${CONTAINER_TAG}")
@@ -20,9 +19,8 @@ setup_docker_container() {
 }
 
 function setup_singularity_container() {
-    printf "Setting up module with Singularity container.\n"
-
     if [[ ! -f "${SINGULARITY_CONTAINER_FILE_PATH}" ]]; then
+      printf "Setting up module with Singularity container.\n"
       singularity pull "${SINGULARITY_CONTAINER_FILE_PATH}" "docker://${CONTAINER_TAG}"
     fi
 
