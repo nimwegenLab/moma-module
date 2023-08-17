@@ -39,7 +39,7 @@ function setup_singularity_container() {
 setup_module() {
   export VERSION="v0.9.7"
   export CONTAINER_NAME="moma"
-  CONTAINER_NAMESPACE="michaelmell"
+  CONTAINER_NAMESPACE="nimwegenlab"
   export CONTAINER_TAG="${CONTAINER_NAMESPACE}/${CONTAINER_NAME}:${VERSION}"
 
   DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
