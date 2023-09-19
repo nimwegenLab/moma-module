@@ -1,6 +1,6 @@
-# moma-module
+# MoMA module
 
-This repository contains files for running a containerized version of [MoMA](https://github.com/michaelmell/MoMA/wiki).
+This repository contains files for running a containerized version of [MoMA](https://github.com/nimwegenlab/MoMA).
 It allows you to run MoMA with minimal setup effort. Furthermore, contains module files for using MoMA with [Environment Modules](https://modules.readthedocs.io/en/latest/index.html).
 
 ## Requirements

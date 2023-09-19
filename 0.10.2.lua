@@ -6,12 +6,12 @@ Mother-machine analyzer (MoMA) tool to track bacteria in Mother machines.
 
 More information
 ================
- - Homepage: https://github.com/michaelmell/MoMA
- - Wiki: https://github.com/michaelmell/MoMA/wiki
+ - Homepage: https://github.com/nimwegenlab/moma
+ - Wiki: https://github.com/nimwegenlab/moma/wiki
 ]==])
 
 whatis([==[Description: Mother-machine analyzer (MoMA)]==])
-whatis([==[Homepage: https://github.com/michaelmell/MoMA]==])
+whatis([==[Homepage: https://github.com/nimwegenlab/moma]==])
 
 conflict("moma-module")
 
